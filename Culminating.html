@@ -1,0 +1,264 @@
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothes Selling App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #cf0aed;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            font-size: 1.5em;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 6em 1em 1em; /* Adjusted padding to account for the fixed header */
+            box-sizing: border-box;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 1em 0;
+        }
+
+        .item {
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+            transition: box-shadow 0.3s;
+        }
+
+        .item:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .item img:hover {
+            transform: scale(1.1);
+        }
+
+        .item p {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .hamburger {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+        }
+
+        .hamburger input[type="checkbox"] {
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            display: block;
+            z-index: 3;
+            opacity: 0; 
+            cursor: pointer;
+        }
+
+        .hamburgerlines {
+            width: 40px;
+            height: 32px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburgerlines .lines {
+            display: block;
+            height: 4px;
+            width: 100%;
+            background: #232323;
+            border-radius: 10px;
+        }
+
+        .menu-items {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding-top: 70px;
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in-out;
+            padding-left: 15px;
+            background: #730ad5;
+            color: #fff;
+            padding-bottom: 1rem;
+            max-width: 400px;
+            width: 90%;
+            height: 100vh;
+            overflow-y: scroll;
+            display: none;
+        }
+
+        .menu-items li {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .hamburger input[type="checkbox"]:checked ~ .menu-items {
+            display: block;
+            transform: translateX(0);
+        }
+
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .lines {
+            background: #fff;
+        }
+
+        .hamburgerlines .line1 {
+            transform-origin: 0% 0%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburgerlines .line3 {
+            transform-origin: 0% 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .line1 {
+            transform: rotate(45deg);
+        }
+
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .line2 {
+            display: none;
+        }
+
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .line3 {
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        𝚝𝚛𝚊𝚍𝚎𝚜𝚒𝚎
+    </header>
+    <div class="container">
+        <div class="grid-container">
+            <div class="item">
+                <img src="53299fec-a197-4338-b255-c5fd206a9c53.webp" alt="Item 1" onclick="itemClicked(1)">
+                <p>Lucky Dice Jeans</p>
+            </div>
+            <div class="item">
+                <img src="m_65c7feb1046d746958863059.jpg" alt="Item 2" onclick="itemClicked(2)">
+                <p>Billabong y2k zipup</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            </div>
+            <div class="item">
+                <img src="S5021caa7099c47eebf92a5ab59977f54n.jpg_640x640Q90.jpg_.webp" alt="Item 3" onclick="itemClicked(3)">
+                <p>Tapout all over print</p>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger">
+        <input type="checkbox">
+        <div class="hamburgerlines">
+            <span class="lines line1"></span>
+            <span class="lines line2"></span>
+            <span class="lines line3"></span>
+        </div>
+        <ul class="menu-items">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Blog</li>
+            <li>Log Out</li>
+        </ul>
+    </div>
+
+    <script>
+        function itemClicked(itemId) {
+            alert("Coming Soon!");
+        }
+    </script>
+</body>
+</html>

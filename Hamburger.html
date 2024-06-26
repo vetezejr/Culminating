@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owensfile</title>
+    <style>
+        /* Set all elements to use border-box for sizing */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 2rem;
+        }
+
+        /* Remove default list styling for list items */
+        li {
+            list-style: none;
+        }
+
+        /* Styling for the hidden checkbox used to toggle the menu */
+        .hamburger input[type="checkbox"] {
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: 5px;
+            left: 6px;
+            display: block;
+            z-index: 3;
+            opacity: 0; /* Make the checkbox invisible */
+            cursor: pointer;
+        }
+
+        /* Container for the hamburger lines */
+        .hamburgerlines {
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: 8px;
+            left: 7px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Styling for each individual line of the hamburger icon */
+        .hamburgerlines .lines {
+            display: block;
+            height: 4px;
+            width: 100%;
+            background: #232323;
+            border-radius: 10px;
+        }
+
+        /* Position the hamburger menu relative to its container */
+        .hamburger {
+            position: relative;
+        }
+
+        /* Styling for the menu items */
+        .menu-items {
+            padding-top: 90px;
+            transform: translate(-110%); /* Hide off-screen initially */
+            transition: transform 0.5s ease-in-out;
+            padding-left: 15px;
+            background: #fff;
+            margin-top: -10px;
+            color: #fff;
+            padding-bottom: 1rem;
+            max-width: 400px;
+            width: 90%;
+            height: 100vh;
+            overflow: scroll;
+            display: none; /* Initially hidden */
+        }
+
+        /* Styling for individual menu items */
+        .menu-items li {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        /* When the checkbox is checked, show the menu */
+        .hamburger input[type="checkbox"]:checked ~ .menu-items {
+            display: block;
+            transform: translate(0%);
+            background: #232323;
+        }
+
+        /* Change the color of the hamburger lines when the menu is open */
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .lines {
+            background: #fff;
+        }
+
+        /* Transform the first line to create the 'X' shape */
+        .hamburgerlines .line1 {
+            transform-origin: 0% 0%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Transform the third line to create the 'X' shape */
+        .hamburgerlines .line3 {
+            transform-origin: 0% 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Rotate the first line to form the 'X' when the menu is open */
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .line1 {
+            transform: rotate(45deg);
+        }
+
+        /* Hide the middle line when the menu is open */
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .line2 {
+            display: none;
+        }
+
+        /* Rotate the third line to form the 'X' when the menu is open */
+        .hamburger input[type="checkbox"]:checked ~ .hamburgerlines .line3 {
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger">
+        <!-- Hidden checkbox to toggle the menu -->
+        <input type="checkbox">
+        <div class="hamburgerlines">
+            <!-- The three lines of the hamburger icon -->
+            <span class="lines line1"></span>
+            <span class="lines line2"></span>
+            <span class="lines line3"></span>
+        </div>
+        <!-- The menu items -->
+        <ul class="menu-items">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>Blog</li>
+            <li>Log Out</li>
+        </ul>
+    </div>
+</body>
+</html>

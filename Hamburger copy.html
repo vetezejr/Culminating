@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owensfile</title>
+    <style>
+        /* Apply box-sizing to all elements */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Basic body styling */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding-top: 2rem;
+            margin: 0;
+        }
+
+        /* Remove default list styling */
+        li {
+            list-style: none;
+        }
+
+        /* Style for the hamburger menu container */
+        .hamburger {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            z-index: 10; /* Ensure it's on top */
+        }
+
+        /* Style for the hamburger menu icon */
+        .hamburger img {
+            width: 80px;  /* Doubled width */
+            height: 64px; /* Doubled height */
+            cursor: pointer;
+        }
+
+        /* Style for the menu items container */
+        .menu-items {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 90%;
+            max-width: 400px;
+            height: 100vh;
+            background: #232323;
+            transform: translateX(-100%); /* Initially hidden */
+            transition: transform 0.5s ease-in-out;
+            padding-top: 90px;
+            padding-left: 15px;
+            color: #fff;
+            overflow-y: auto;
+        }
+
+        /* Style for individual menu items */
+        .menu-items li {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        /* Class to show the menu */
+        .menu-items.show {
+            transform: translateX(0);
+        }
+
+        /* Style for the close button */
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger">
+        <!-- Hamburger menu icon -->
+        <img src="menu-img.png" alt="Menu" id="hamburgerButton">
+        <!-- Menu items -->
+        <ul class="menu-items" id="menuItems">
+            <!-- Close button for the menu -->
+            <span class="close-button" id="closeButton">&times;</span>
+            <li>About ICS</li>
+            <li>ICS3U</li>
+            <li>ICS4U-1</li>
+            <li>ICS4U-2</li>
+            <li>Terms</li>
+            <li>Contact</li>
+        </ul>
+    </div>
+
+    <script>
+        // Toggle the menu visibility when the hamburger button is clicked
+        document.getElementById('hamburgerButton').addEventListener('click', function() {
+            var menu = document.getElementById('menuItems');
+            menu.classList.toggle('show');
+        });
+
+        // Hide the menu when the close button is clicked
+        document.getElementById('closeButton').addEventListener('click', function() {
+            var menu = document.getElementById('menuItems');
+            menu.classList.remove('show');
+        });
+    </script>
+</body>
+</html>
